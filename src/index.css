@@ -2,7 +2,11 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Courier New", 'Courier New', Courier, monospace;
-  background: linear-gradient(89deg, #759C83 0%, #2EADF0 100%);
+  /* background: linear-gradient(89deg, #759C83 0%, #2EADF0 100%); */
+  /* background: linear-gradient(89deg, #423BF4 0%, #32D085 100%); */
+  /* background: linear-gradient(89deg, #431DAC 0%, #C0220B 100%); */
+  /* background: linear-gradient(89deg, #4E0895 0%, #BE85A2 100%); */
+  background: linear-gradient(89deg, #3641D7 0%, #77D59A 100%);
 }
 
 code {
