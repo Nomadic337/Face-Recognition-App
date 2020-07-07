@@ -28,8 +28,8 @@ class Register extends React.Component {
             method: 'post',
             headers: { 'Content-Type' : 'application/json' },
             body: JSON.stringify({
-                email: this.state.signInEmail,
-                password: this.state.signInPassword,
+                email: this.state.email,
+                password: this.state.password,
                 name: this.state.name
 
             })
@@ -66,8 +66,8 @@ class Register extends React.Component {
                                 <input 
                                     className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
                                     type="email" 
-                                    name="email-address"  
-                                    id="email-address" 
+                                    name="email"  
+                                    id="email" 
                                     onChange={this.onEmailChange}
                                 />
                             </div>
