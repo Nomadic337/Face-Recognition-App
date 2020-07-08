@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Navigation from './Components/Navigation/Navigation';
 import FaceRecognition from './Components/FaceRecognition/FaceRegnition';
-import Clarifai from 'clarifai';
 import Logo from './Components/Logo/Logo';
 import Register from './Components/Register/Register';
 import ImageLinkForm from './Components/ImageLinkForm/ImageLinkForm';
@@ -10,11 +9,6 @@ import Particles from 'react-particles-js';
 import Signin from './Components/Signin/Signin';
 import './App.css';
 
-
-// Clarifai API key
-const app = new Clarifai.App({
- apiKey: '52178bdd052b404bacc099f514b720ec'
-});
 
 // Particle.js edits for background display
 const ParticlesOptions = {
@@ -90,10 +84,14 @@ class App extends Component {
     // Changes state to display box around face in the picture for user
   onButtonSubmit = () => {
     this.setState({ imageUrl: this.state.input });
-    app.models
-      .predict(
-        'c0c0ac362b03416da06ab3fa36fb58e3', 
-      this.state.input)
+    fetch('http://localhost:3000/imageurl', {
+      method: 'post',
+      headers: { 'Content-Type' : 'application/json' },
+      body: JSON.stringify({
+        id: this.state.input   
+      })
+    })
+      .then(response => response.json())
       .then(response => {
         if (response) {
           fetch('http://localhost:3000/image', {
